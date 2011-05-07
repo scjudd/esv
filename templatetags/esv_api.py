@@ -1,9 +1,10 @@
 from django import template
+import re
 
-def esv_popout(value):
+def esv_lookup(value):
   "Replaces a given passage with javascript lookup code"
-  return "<a href=\"#\" onclick=\"esv_popout(%s);\">%s</a>" % (value, value)
-esv_popout.is_safe = True
+  return "<script type=\"text/javascript\" src=\"http://www.gnpcb.org/esv/share/js/?action=doPassageQuery&include-passage-references=false&include-footnotes=false&include-headings=false&include-subheadings=false&include-audio-link=false&passage=%s\"></script>" % re.sub(r'\s','%20',value)
+esv_lookup.is_safe = True
 
 register = template.Library()
-register.filter('esv_popout', esv_popout)
+register.filter('esv_lookup', esv_lookup)
