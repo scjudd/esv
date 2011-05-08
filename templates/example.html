@@ -1,17 +1,7 @@
 <link rel="stylesheet" type="text/css" href="http://www.gnpcb.org/esv/assets/style/text.css" />
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
-<style type="text/css">
-  a.esv_popout{ display:block; }
-  .esv_lookup { display:none; }
-</style>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $(".esv_popout").toggle(
-      function(){ $(this).next(".esv_lookup").fadeIn(100); },
-      function(){ $(this).next(".esv_lookup").fadeOut(100); }
-    );
-  });
-</script>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}esv_api.css" />
+<script type="text/javascript" src="{{ STATIC_URL }}esv_api.js"></script>
 
 {% load esv_api %}
 <h1>Verses</h1>
